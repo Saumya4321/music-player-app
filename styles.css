@@ -1,0 +1,39 @@
+body {
+    -webkit-app-region: drag;
+    /* Makes the entire window draggable */
+    user-select: none;
+    /* Prevents accidental text selection */
+}
+
+button {
+    -webkit-app-region: no-drag;
+    /* Enables button interactions */
+    cursor: pointer;
+}
+
+input {
+    -webkit-app-region: no-drag;
+    /* Enables button interactions */
+    cursor: pointer;
+}
+
+#title-bar {
+    -webkit-app-region: drag;
+    height: 30px;
+    background: #222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#close-btn {
+    -webkit-app-region: no-drag;
+    /* Ensures button clicks work */
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}

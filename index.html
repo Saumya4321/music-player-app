@@ -11,14 +11,16 @@
 </head>
 
 <body>
-    <div id="button-frame">
-        <span><h2></h2></span>
-        <button id="close-button">X</button>
+    <div id="title-bar">
+        <span>
+        <button id="close-button">✖ </button></span>
     </div>
-    <input type="text" id="search" placeholder="Search for a song...">
-    <button onclick="searchMusic()">Search</button>
-    <div id="results"></div>
-    <iframe id="player" width="560" height="315" frameborder="0" allow="autoplay"></iframe>
+    <div id="content-part">
+        <input type="text" id="search" placeholder="Search for a video..">
+        <button onclick="searchMusic()" id="search-button">⌕</button>
+        <div id="results"></div>
+        <iframe id="player" width="560" height="315" frameborder="0" allow="autoplay"></iframe>
+    </div>
 </body>
 
 </html>

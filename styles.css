@@ -1,9 +1,19 @@
 body {
     -webkit-app-region: drag;
+    height: 100vh;
     /* Makes the entire window draggable */
     user-select: none;
     /* Prevents accidental text selection */
+    background-color: black;
+    overflow-y: auto;  /* Enables scrolling */
 }
+
+
+
+body::-webkit-scrollbar {
+    display: none; /* Hides scroll bar*/
+}
+
 
 button {
     -webkit-app-region: no-drag;
@@ -19,21 +29,74 @@ input {
 
 #title-bar {
     -webkit-app-region: drag;
-    height: 30px;
-    background: #222;
+    height: 12px;
+    background: black;
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     padding: 5px;
 }
 
-#close-btn {
-    -webkit-app-region: no-drag;
-    /* Ensures button clicks work */
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
+#content-part {
+    overflow: hidden;
+    height: 100%;
 }
+
+
+#close-button {
+    -webkit-app-region: no-drag;
+    background: turquoise;
+    color: gray;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+
+}
+
+
+
+#button-frame{
+    background-color: blue;
+   
+}
+
+#search{
+  margin-left:2rem;
+}
+
+#search-button{
+    background-color: black;
+    color:turquoise;
+    border:none;
+    box-shadow:none;
+    width:30px;
+    height:30px;
+    font-size:25px;
+}
+
+
+
+
+#results::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+#results{
+    margin-top:10px;
+    overflow-y: auto;
+    /* max-height: 50vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+#results button {
+    background-color: white;
+    border-radius: 1rem;
+}
+
+
+  

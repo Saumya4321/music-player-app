@@ -7,15 +7,6 @@ const searchButton = document.getElementById("search-button");
 const titleBar = document.getElementById("title-bar")
 let isPlaying = false;
 
-document.addEventListener("mousemove", (event) => {
-    if (event.clientY < 30) {
-        searchInput.style.display = "";
-        searchButton.style.display = "";
-        titleBar.style.display = "";
-    }
-
-})
-
 async function searchMusic() {
     const query = searchInput.value;
 
@@ -23,44 +14,67 @@ async function searchMusic() {
         player.style.display = "none";
     }
 
-    resultsDiv.style.display = "";  // Show results again
-    player.style.width = "";  // Reset player size
-    player.style.height = "";  // Reset player size
-   
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&key=${API_KEY}`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-    
-
+    resultsDiv.style.display = "";
+    player.style.width = "";
+    player.style.height = "";
     resultsDiv.innerHTML = "";
-    data.items.forEach(video => {
-        const videoId = video.id.videoId;
-        const title = video.snippet.title;
-        
-        const button = document.createElement("button");
-        button.innerText = title;
-        button.onclick = () => {
-            player.style.display="block";
-            playMusic(videoId)
-            
-        };
-        
-        resultsDiv.appendChild(button);
+
+    // Step 1: Get video IDs from search
+    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&key=${API_KEY}`;
+    const searchResponse = await fetch(searchUrl);
+    const searchData = await searchResponse.json();
+
+    const videoIds = searchData.items.map(item => item.id.videoId).filter(Boolean);
+    if (videoIds.length === 0) {
+        resultsDiv.innerHTML = "<p>No videos found.</p>";
+        return;
+    }
+
+    // Step 2: Get full video info for embeddability + restrictions
+    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,status,contentDetails&id=${videoIds.join(",")}&key=${API_KEY}`;
+    const detailsResponse = await fetch(detailsUrl);
+    const detailsData = await detailsResponse.json();
+
+    // Check each video
+    const userCountry = "IN"; // change this if testing from elsewhere
+
+    detailsData.items.forEach(video => {
+        const videoId = video.id;
+        const title = video.snippet?.title;
+        const isEmbeddable = video.status?.embeddable;
+        const regionBlocked = video.contentDetails?.regionRestriction?.blocked || [];
+
+        console.log(`🎵 ${title} | Embeddable: ${isEmbeddable} | Blocked: ${regionBlocked.join(", ") || "None"}`);
+
+        if (/official|mv|performance/i.test(title)) {
+            console.warn(`🚫 Skipping "${title}" due to likely restrictions`);
+            return;
+        }        
+
+        if (isEmbeddable && !regionBlocked.includes(userCountry)) {
+            const button = document.createElement("button");
+            button.innerText = title;
+            button.onclick = () => {
+                player.style.display = "block";
+                playMusic(videoId);
+            };
+            resultsDiv.appendChild(button);
+        } else {
+            console.warn(`⛔ Skipped: "${title}" — Region blocked or not embeddable`);
+        }
     });
 
-
-    if (data.items.length > 0) {
-        isPlaying = false;  
+    if (detailsData.items.length > 0) {
+        isPlaying = false;
     }
 }
 
+
 function playMusic(videoId) {
     player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    resultsDiv.style.display = "none";  // Hide search results
-    searchInput.style.display = "none";
-    searchButton.style.display = "none";
-    titleBar.style.display = "none";
+        resultsDiv.style.display = "none";  // Hide search results
+        searchInput.style.display = "none";
+        searchButton.style.display= "none";
 
     player.style.width = "100%";  // Expand player
     player.style.height = "100vh";  // Make it fill the window

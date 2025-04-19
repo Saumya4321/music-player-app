@@ -15,6 +15,10 @@ A minimalist, floating desktop music player built using Electron, allowing you t
 ## Demo
 
 
+https://github.com/user-attachments/assets/e2b752ea-c588-411d-a383-b5651051b77d
+
+
+
 ## Getting Started
 
 ### 1. Clone the repo

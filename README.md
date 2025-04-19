@@ -1,4 +1,4 @@
-# Floating YouTube Music Player
+# Floating YouTube Video Player
 
 A minimalist, floating desktop music player built using Electron, allowing you to search and play embeddable YouTube videos in a distraction-free window.
 

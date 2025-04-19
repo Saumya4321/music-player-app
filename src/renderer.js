@@ -1,4 +1,4 @@
-const API_KEY = <add youtube key>// Replace with your API key
+const API_KEY = YOUR_API_KEY   // Replace with your API key
 const searchInput = document.getElementById("search");
 const resultsDiv = document.getElementById("results");
 const player = document.getElementById("player");

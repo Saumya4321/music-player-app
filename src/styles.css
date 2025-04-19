@@ -4,7 +4,8 @@ body {
     /* Makes the entire window draggable */
     user-select: none;
     /* Prevents accidental text selection */
-    background-color: black;
+    
+    background-color: #111;
     overflow-y: auto;  /* Enables scrolling */
 }
 
@@ -30,7 +31,7 @@ input {
 #title-bar {
     -webkit-app-region: drag;
     height: 12px;
-    background: black;
+    background: #111;
     color: white;
     display: flex;
     justify-content: right;
@@ -42,61 +43,99 @@ input {
     height: 100%;
 }
 
+/*   CLOSE BUTTON   */
 
 #close-button {
     -webkit-app-region: no-drag;
-    background: turquoise;
-    color: gray;
-    border: none;
-    padding: 2px;
+    background: transparent;
+    color: #5a92ab;
+    border: 1px solid #5a92ab;
+    padding: 3px 6px;
+    font-size: 12px;
+    border-radius: 4px;
     cursor: pointer;
-    height: 20px;
-    width: 20px;
-    border-radius: 3px;
+    transition: background 0.2s;
+}
 
+#close-button:hover {
+    background-color: #71b1ce;
+    border-color: #71b1ce;
+    color: black;
 }
 
 
+/* SEARCH AREA */
 
-#button-frame{
-    background-color: blue;
-   
-}
-
-#search{
-  margin-left:2rem;
+#search {
+    margin-left: 1.5rem;
+    border-radius: 6px;
+    padding-left: 10px;
+    border: none;
+    height: 25px;
+    width: 70%;
+    outline: none;
+    display: inline-block;
+    background-color: #1c1c1c;
+    color: #5a92ab;
 }
 
 #search-button{
-    background-color: black;
-    color:turquoise;
+    background-color: #111;
+    color:#5a92ab;
     border:none;
     box-shadow:none;
     width:30px;
     height:30px;
     font-size:25px;
+
+}
+
+#search-button:hover {
+    color: rgb(6, 84, 113);
+
 }
 
 
 
+
+/* RESULTS AREA  */
 
 #results::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
 
-#results{
-    margin-top:10px;
-    overflow-y: auto;
+/* #results{
     /* max-height: 50vh; */
+
+
+#results {
+    margin-top: 10px;
+    padding: 10px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 #results button {
-    background-color: white;
-    border-radius: 1rem;
+    background-color: #282c34;
+    color: rgb(170, 215, 217);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#results button:hover {
+    background-color: #38404f;
+    transform: scale(1.02);
+    
 }
 
 
-  
+/* TESTING */
+
+

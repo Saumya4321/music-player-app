@@ -6,6 +6,43 @@ const close_button = document.getElementById("close-button");
 const searchButton = document.getElementById("search-button");
 const titleBar = document.getElementById("title-bar")
 let isPlaying = false;
+let firstTime = true;
+
+document.addEventListener("mousemove", (event) => {
+    if (event.clientY < 60) {
+        searchInput.style.display = "";
+        searchButton.style.display = "";
+        titleBar.style.display = "";
+    }
+    else {
+        if (!firstTime) {
+            searchInput.style.display = "none";
+            searchButton.style.display = "none";
+            titleBar.style.display = "none";
+        
+        }
+    }
+
+})
+
+searchButton.addEventListener("click", () =>
+{
+    searchInput.style.display = "";
+    searchButton.style.display = "";
+    titleBar.style.display = "";
+
+})
+
+// document.addEventListener("mouseout", () =>
+// {
+//     if (!firstTime) {
+//             searchInput.style.display = "none";
+//             searchButton.style.display = "none";
+//             titleBar.style.display = "none";
+        
+//         }
+// }
+// )
 
 async function searchMusic() {
     const query = searchInput.value;
@@ -66,20 +103,26 @@ async function searchMusic() {
 
     if (detailsData.items.length > 0) {
         isPlaying = false;
+        pause();
     }
 }
 
+function pause() {
+    player.src=""
+}
 
 function playMusic(videoId) {
     player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        resultsDiv.style.display = "none";  // Hide search results
-        searchInput.style.display = "none";
-        searchButton.style.display= "none";
+    resultsDiv.style.display = "none";  // Hide search results
+    searchInput.style.display = "none";
+    searchButton.style.display = "none";
+    titleBar.style.display = "none";
 
     player.style.width = "100%";  // Expand player
     player.style.height = "100vh";  // Make it fill the window
 
     isPlaying = true;
+    firstTime = false;
 }
 
 

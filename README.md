@@ -42,6 +42,13 @@ const searchInput = document.getElementById("search");
 ```bash
 npm start
 ```
+## Building the app
+To turn this Electron app into a full-fledged app:
++ Install a packaging tool like Electron Builder.
++ Configure your package.json for packaging and specify build options.
++ Run the build process for your target platform.
++ Test the packaged app.
+
 
 ## Demo
 

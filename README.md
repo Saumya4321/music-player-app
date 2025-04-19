@@ -12,11 +12,6 @@ A minimalist, floating desktop music player built using Electron, allowing you t
 - Gracefully handles playback errors (e.g., "Watch on YouTube" restriction)
 
 
-## Demo
-
-
-https://github.com/user-attachments/assets/e2b752ea-c588-411d-a383-b5651051b77d
-
 
 
 ## Getting Started
@@ -49,3 +44,10 @@ npm start
 - Minimalist design using plain HTML, CSS, and JavaScript
 - Lightweight — no unnecessary libraries or frameworks
 - Built entirely using Electron, making it cross-platform (Windows, macOS, Linux)
+
+## Demo
+
+
+https://github.com/user-attachments/assets/e2b752ea-c588-411d-a383-b5651051b77d
+
+

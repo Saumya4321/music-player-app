@@ -12,7 +12,7 @@ A minimalist, floating desktop music player built using Electron, allowing you t
 - Gracefully handles playback errors (e.g., "Watch on YouTube" restriction)
 
 
-## App in usage
+## Demo
 
 
 ## Getting Started
@@ -34,3 +34,14 @@ In ```renderer.js``` add your youtube key, or use the existing one for a quick d
 ```bash
 npm start
 ```
+## Features
+
+- Search and play YouTube videos directly within the app
+- Embeds only videos that are allowed to be played externally (using `embeddable` and `regionRestriction` checks)
+- Automatically hides search UI during playback for a distraction-free experience
+- Restores UI elements on mouse movement near the top of the window
+- Gracefully handles playback errors like "Video unavailable" or "Watch on YouTube"
+- Responsive resizing: video player adjusts to window size
+- Minimalist design using plain HTML, CSS, and JavaScript
+- Lightweight — no unnecessary libraries or frameworks
+- Built entirely using Electron, making it cross-platform (Windows, macOS, Linux)

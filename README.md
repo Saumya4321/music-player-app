@@ -15,7 +15,10 @@ A minimalist, floating desktop music player built using Electron, allowing you t
 - Built entirely using Electron, making it cross-platform (Windows, macOS, Linux)
 
 
-
+## Prerequisites
+Before building and running the app, make sure you have the following installed:
++ Node.js
++ npm
 
 ## Getting Started
 

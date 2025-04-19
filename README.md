@@ -23,3 +23,14 @@ A minimalist, floating desktop music player built using Electron, allowing you t
 git clone https://github.com/Saumya4321/music-player-app.git
 cd music-player-app
 ```
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Replace Youtube Key
+In ```renderer.js``` add your youtube key, or use the existing one for a quick demo
+
+### 4. Run the app
+```bash
+npm start
+```

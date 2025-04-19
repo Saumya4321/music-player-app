@@ -30,7 +30,13 @@ cd music-player-app
 npm install
 ```
 ### 3. Replace Youtube Key
-In ```renderer.js``` add your youtube key, or use the existing one for a quick demo
+In ```renderer.js``` replace ``` <add youtube key>``` with your Youtube Key.
+```renderer.js
+const API_KEY = <add youtube key>   // Replace with your API key
+const searchInput = document.getElementById("search");
+.....
+
+```
 
 ### 4. Run the app
 ```bash

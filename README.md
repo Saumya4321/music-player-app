@@ -2,7 +2,6 @@
 
 A minimalist, floating desktop music player built using Electron, allowing you to search and play embeddable YouTube videos in a distraction-free window.
 
----
 
 ## Features
 
@@ -12,13 +11,9 @@ A minimalist, floating desktop music player built using Electron, allowing you t
 - Auto-hides UI elements for a clean viewing experience
 - Gracefully handles playback errors (e.g., "Watch on YouTube" restriction)
 
----
 
-## Screenshots
+## App in usage
 
-(Optional: Add screenshots of the app in use)
-
----
 
 ## Getting Started
 
